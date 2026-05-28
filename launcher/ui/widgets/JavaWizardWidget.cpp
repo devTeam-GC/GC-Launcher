@@ -89,9 +89,9 @@ void JavaWizardWidget::setupUi()
     m_minMemSpinBox = new QSpinBox(m_memoryGroupBox);
     m_minMemSpinBox->setObjectName(QStringLiteral("minMemSpinBox"));
     m_minMemSpinBox->setSuffix(QStringLiteral(" MiB"));
-    m_minMemSpinBox->setMinimum(8);
-    m_minMemSpinBox->setMaximum(1048576);
-    m_minMemSpinBox->setSingleStep(128);
+    m_minMemSpinBox->setMinimum(1024);
+    m_minMemSpinBox->setMaximum(6144);
+    m_minMemSpinBox->setSingleStep(256);
     m_labelMinMem->setBuddy(m_minMemSpinBox);
     m_gridLayout_2->addWidget(m_minMemSpinBox, 0, 1, 1, 1);
 
@@ -102,9 +102,9 @@ void JavaWizardWidget::setupUi()
     m_maxMemSpinBox = new QSpinBox(m_memoryGroupBox);
     m_maxMemSpinBox->setObjectName(QStringLiteral("maxMemSpinBox"));
     m_maxMemSpinBox->setSuffix(QStringLiteral(" MiB"));
-    m_maxMemSpinBox->setMinimum(8);
-    m_maxMemSpinBox->setMaximum(1048576);
-    m_maxMemSpinBox->setSingleStep(128);
+    m_maxMemSpinBox->setMinimum(1024);
+    m_maxMemSpinBox->setMaximum(6144);
+    m_maxMemSpinBox->setSingleStep(256);
     m_labelMaxMem->setBuddy(m_maxMemSpinBox);
     m_gridLayout_2->addWidget(m_maxMemSpinBox, 1, 1, 1, 1);
 

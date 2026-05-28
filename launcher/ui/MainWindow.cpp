@@ -341,6 +341,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
         ui->actionCAT->setPriority(QAction::LowPriority);
         bool cat_enable = APPLICATION->settings()->get("TheCat").toBool();
         ui->actionCAT->setChecked(cat_enable);
+        ui->actionCAT->setVisible(false);
         connect(ui->actionCAT, &QAction::toggled, this, &MainWindow::onCatToggled);
         connect(APPLICATION, &Application::currentCatChanged, this, &MainWindow::onCatChanged);
         setCatBackground(cat_enable);

@@ -87,7 +87,32 @@ QString useQTForArch()
 
 int defaultMaxJvmMem()
 {
-    return std::min(static_cast<int>(HardwareInfo::totalRamMiB() / 1.5), 6144);
+    const uint64_t totalRAM = HardwareInfo::totalRamMiB();
+    int maxMemoryAlloc;
+
+    if (totalRAM <= 4096)
+        maxMemoryAlloc = 2048;
+    else if (totalRAM <= (4096 * 2))
+        maxMemoryAlloc = 2560;
+    else
+        maxMemoryAlloc = 3072;
+
+    return maxMemoryAlloc;
+}
+
+int defaultMinJvmMem()
+{
+    const uint64_t totalRAM = HardwareInfo::totalRamMiB();
+    int minMemoryAlloc;
+
+    if (totalRAM <= 4096)
+        minMemoryAlloc = 2048;
+    else if (totalRAM <= (4096 * 2))
+        minMemoryAlloc = 2560;
+    else
+        minMemoryAlloc = 3072;
+
+    return minMemoryAlloc;
 }
 
 QString getSupportedJavaArchitecture()

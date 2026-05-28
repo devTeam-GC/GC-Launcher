@@ -640,8 +640,8 @@ QStringList MinecraftInstance::javaArguments()
     if (presetString == "G1GC") {
         preset = JavaPerformance::GarbageCollectorPreset::G1GC;
     }
-    if (presetString == "ZGC") {
-        preset = JavaPerformance::GarbageCollectorPreset::ZGC;
+    if (presetString == "ShenandoahGC") {
+        preset = JavaPerformance::GarbageCollectorPreset::ShenandoahGC;
     }
     args.append(JavaPerformance::getCompletePerformanceArgs(javaVersion, m_settings->get("UseOptimizedJvmArgs").toBool(), preset));
 

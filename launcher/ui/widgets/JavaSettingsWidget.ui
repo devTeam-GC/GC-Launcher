@@ -409,9 +409,9 @@
        <widget class="QPlainTextEdit" name="userArgsTextBox"/>
       </item>
       <item row="4" column="1">
-       <widget class="QRadioButton" name="zgcPresetRadioButton">
+       <widget class="QRadioButton" name="ShenandoahGCPresetRadioButton">
         <property name="text">
-         <string>ZGC</string>
+         <string>ShenandoahGC</string>
         </property>
        </widget>
       </item>

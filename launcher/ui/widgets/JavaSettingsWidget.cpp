@@ -111,7 +111,7 @@ JavaSettingsWidget::JavaSettingsWidget(BaseInstance* instance, QWidget* parent)
     connect(m_ui->optimizedArgsCheckBox, &QCheckBox::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
     connect(m_ui->noPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
     connect(m_ui->g1gcPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
-    connect(m_ui->zgcPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
+    connect(m_ui->ShenandoahGCPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
 
     loadSettings();
     updateThresholds();
@@ -170,8 +170,8 @@ void JavaSettingsWidget::loadSettings()
     auto preset = settings->get("GarbageCollectorPreset").toString();
     if (preset == "G1GC") {
         m_ui->g1gcPresetRadioButton->toggle();
-    } else if (preset == "ZGC") {
-        m_ui->zgcPresetRadioButton->toggle();
+    } else if (preset == "ShenandoahGC") {
+        m_ui->ShenandoahGCPresetRadioButton->toggle();
     } else {
         m_ui->noPresetRadioButton->toggle();
     }
@@ -245,8 +245,8 @@ void JavaSettingsWidget::saveSettings()
         QString preset = "None";
         if (m_ui->g1gcPresetRadioButton->isChecked()) {
             preset = "G1GC";
-        } else if (m_ui->zgcPresetRadioButton->isChecked()) {
-            preset = "ZGC";
+        } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
+            preset = "ShenandoahGC";
         }
         settings->set("GarbageCollectorPreset", preset);
     } else {
@@ -358,8 +358,8 @@ void JavaSettingsWidget::updateLauncherArgs()
         auto preset = JavaPerformance::GarbageCollectorPreset::None;
         if (m_ui->g1gcPresetRadioButton->isChecked()) {
             preset = JavaPerformance::GarbageCollectorPreset::G1GC;
-        } else if (m_ui->zgcPresetRadioButton->isChecked()) {
-            preset = JavaPerformance::GarbageCollectorPreset::ZGC;
+        } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
+            preset = JavaPerformance::GarbageCollectorPreset::ShenandoahGC;
         }
 
         QString warning;

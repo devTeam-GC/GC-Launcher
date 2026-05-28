@@ -26,7 +26,7 @@ namespace JavaPerformance {
     enum class GarbageCollectorPreset : std::uint8_t {
         None,
         G1GC,
-        ZGC
+        ShenandoahGC
     };
 
     QStringList getBaseOptimizationArgs(const JavaVersion& version, GarbageCollectorPreset preset);
