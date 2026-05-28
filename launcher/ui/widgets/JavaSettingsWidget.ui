@@ -220,13 +220,13 @@
              <string notr="true"> MiB</string>
             </property>
             <property name="minimum">
-             <number>8</number>
+             <number>1024</number>
             </property>
             <property name="maximum">
-             <number>1048576</number>
+             <number>6144</number>
             </property>
             <property name="singleStep">
-             <number>128</number>
+             <number>256</number>
             </property>
             <property name="value">
              <number>256</number>
@@ -269,13 +269,13 @@
              <string notr="true"> MiB</string>
             </property>
             <property name="minimum">
-             <number>8</number>
+             <number>1024</number>
             </property>
             <property name="maximum">
-             <number>1048576</number>
+             <number>6144</number>
             </property>
             <property name="singleStep">
-             <number>128</number>
+             <number>256</number>
             </property>
             <property name="value">
              <number>1024</number>

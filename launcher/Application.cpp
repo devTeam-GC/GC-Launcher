@@ -646,8 +646,8 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
             new INISettingsObject({ BuildConfig.LAUNCHER_CONFIGFILE, "prismlauncher.cfg", "polymc.cfg", "multimc.cfg" }, this));
 
         // Theming
-        m_settings->registerSetting("IconTheme", QString());
-        m_settings->registerSetting("ApplicationTheme", QString());
+        m_settings->registerSetting("IconTheme", QString("breeze_light"));
+        m_settings->registerSetting("ApplicationTheme", QString("bright"));
         m_settings->registerSetting("BackgroundCat", QString("kitteh"));
         m_settings->registerSetting("CatButtonVisible", true);
 
@@ -753,7 +753,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting("LastHostname", "");
         m_settings->registerSetting("JvmArgs", "");
         m_settings->registerSetting("UseOptimizedJvmArgs", true);
-        const auto defaultGCPreset = m_settings->get("MaxMemAlloc").toInt() >= 4096 ? "ShenandoahGC" : "G1GC";
+        const auto defaultGCPreset = m_settings->get("MaxMemAlloc").toInt() >= 2560 ? "ShenandoahGC" : "G1GC";
         m_settings->registerSetting("GarbageCollectorPreset", defaultGCPreset);
         m_settings->registerSetting("IgnoreJavaCompatibility", true);
         m_settings->registerSetting("IgnoreJavaWizard", true);
@@ -804,7 +804,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         m_settings->registerSetting({ "PostExitCommand", "PostExitCmd" }, "");
 
         // The cat
-        m_settings->registerSetting("TheCat", false);
+        m_settings->registerSetting("TheCat", true);
         m_settings->registerSetting("CatOpacity", 100);
         m_settings->registerSetting("CatFit", "fit");
 
