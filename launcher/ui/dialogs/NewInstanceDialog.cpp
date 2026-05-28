@@ -124,7 +124,7 @@ NewInstanceDialog::NewInstanceDialog(const QString& initialGroup,
     //HelpButton->setDefault(false);
     //HelpButton->setAutoDefault(false);
     //HelpButton->setText(tr("Help"));
-    connect(HelpButton, &QPushButton::clicked, m_container, &PageContainer::help);
+    //connect(HelpButton, &QPushButton::clicked, m_container, &PageContainer::help);
 
     if (!url.isEmpty()) {
         QUrl actualUrl(url);
