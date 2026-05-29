@@ -39,10 +39,10 @@ class InstancePageProvider : protected QObject, public BasePageProvider {
         values.append(new ResourcePackPage(onesix, onesix->resourcePackList()));
         values.append(new GlobalDataPackPage(onesix));
         //values.append(new TexturePackPage(onesix, onesix->texturePackList()));
-        values.append(new ShaderPackPage(onesix, onesix->shaderPackList()));
+        //values.append(new ShaderPackPage(onesix, onesix->shaderPackList()));
         //values.append(new NotesPage(onesix));
         values.append(new WorldListPage(onesix, onesix->worldList()));
-        //values.append(new ServersPage(onesix));
+        values.append(new ServersPage(onesix));
         values.append(new ScreenshotsPage(FS::PathCombine(onesix->gameRoot(), "screenshots")));
         values.append(new InstanceSettingsPage(onesix));
         values.append(new OtherLogsPage("logs", tr("Other Logs"), "Other-Logs", inst));

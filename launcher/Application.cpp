@@ -919,7 +919,7 @@ Application::Application(int& argc, char** argv) : QApplication(argc, argv)
         // Init page provider
         {
             m_globalSettingsProvider = std::make_unique<GenericPageProvider>(tr("Settings"));
-            m_globalSettingsProvider->addPage<LauncherPage>();
+            //m_globalSettingsProvider->addPage<LauncherPage>();
             m_globalSettingsProvider->addPage<LanguagePage>();
             m_globalSettingsProvider->addPage<AppearancePage>();
             //m_globalSettingsProvider->addPage<MinecraftPage>();

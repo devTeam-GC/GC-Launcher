@@ -62,6 +62,7 @@ MinecraftSettingsWidget::MinecraftSettingsWidget(MinecraftInstance* instance, QW
         m_ui->globalDataPacksGroupBox->hide();
         m_ui->loaderGroup->hide();
     } else {
+        m_ui->loaderGroup->generalPage->hide();
         m_javaSettings = new JavaSettingsWidget(m_instance, this);
         m_ui->javaScrollArea->setWidget(m_javaSettings);
 

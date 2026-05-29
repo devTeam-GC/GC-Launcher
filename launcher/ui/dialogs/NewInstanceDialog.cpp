@@ -173,7 +173,6 @@ QList<BasePage*> NewInstanceDialog::getPages()
 
     importPage = new ImportPage(this);
 
-    pages.append(new CustomPage(this));
     pages.append(importPage);
     //pages.append(new AtlPage(this));
     if (APPLICATION->capabilities() & Application::SupportsFlame)
@@ -183,6 +182,7 @@ QList<BasePage*> NewInstanceDialog::getPages()
     //pages.append(new FTBImportAPP::ImportFTBPage(this));
     pages.append(new ModrinthPage(this));
     //pages.append(new TechnicPage(this));
+    pages.append(new CustomPage(this));
 
     return pages;
 }
