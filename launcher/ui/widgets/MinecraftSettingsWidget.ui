@@ -645,9 +645,6 @@ It is most likely you will need to change the path - please refer to the mod's w
       </layout>
      </widget>
      <widget class="QWidget" name="tweaksPage">
-      <property name="visible">
-        <bool>false</bool>
-      </property>
       <attribute name="title">
        <string>Tweaks</string>
       </attribute>
@@ -855,9 +852,6 @@ It is most likely you will need to change the path - please refer to the mod's w
       </layout>
      </widget>
      <widget class="QWidget" name="customCommandsPage">
-      <property name="visible">
-        <bool>false</bool>
-      </property>
       <attribute name="title">
        <string>Custom Commands</string>
       </attribute>
@@ -868,9 +862,6 @@ It is most likely you will need to change the path - please refer to the mod's w
       </layout>
      </widget>
      <widget class="QWidget" name="environmentVariablesPage">
-      <property name="visible">
-        <bool>false</bool>
-      </property>
       <attribute name="title">
        <string>Environment Variables</string>
       </attribute>

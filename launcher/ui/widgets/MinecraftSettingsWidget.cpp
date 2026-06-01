@@ -62,6 +62,8 @@ MinecraftSettingsWidget::MinecraftSettingsWidget(MinecraftInstance* instance, QW
         m_ui->globalDataPacksGroupBox->hide();
         m_ui->loaderGroup->hide();
     } else {
+        m_ui->settingsTabs->setTabVisible(3, false);
+        m_ui->settingsTabs->setTabVisible(4, false);
         m_javaSettings = new JavaSettingsWidget(m_instance, this);
         m_ui->javaScrollArea->setWidget(m_javaSettings);
 
