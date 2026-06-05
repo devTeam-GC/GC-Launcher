@@ -71,6 +71,11 @@ QStringList JavaPerformance::getGarbageCollectorArgs(const JavaVersion& version,
 
             return args;
         }
+        case GarbageCollectorPreset::ZGC: {
+            QStringList args{ "-XX:+UseZGC" };
+
+            return args;
+        }
     }
 
     Q_ASSERT_X(false, "JavaPerformance::getGarbageCollectorArgs", "No arguments specified for current garbage collector preset");
@@ -82,10 +87,10 @@ QStringList JavaPerformance::getCompletePerformanceArgs(const JavaVersion& versi
                                                         GarbageCollectorPreset preset,
                                                         QString* warning)
 {
-    if (preset == GarbageCollectorPreset::ShenandoahGC && version.major() < 24) {
+    if (preset == GarbageCollectorPreset::ShenandoahGC || preset == GarbageCollectorPreset::ZGC && version.major() < 25) {
         preset = GarbageCollectorPreset::G1GC;
         if (warning) {
-            *warning = QObject::tr("ShenandoahGC requires Java 24 or higher, using G1GC");
+            *warning = QObject::tr("ShenandoahGC/ZGC requires Java 25 or higher, using G1GC");
         }
     }
 

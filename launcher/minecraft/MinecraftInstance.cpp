@@ -643,6 +643,10 @@ QStringList MinecraftInstance::javaArguments()
     if (presetString == "ShenandoahGC") {
         preset = JavaPerformance::GarbageCollectorPreset::ShenandoahGC;
     }
+
+    if (presetString == "ZGC") {
+        preset = JavaPerformance::GarbageCollectorPreset::ZGC;
+    }
     args.append(JavaPerformance::getCompletePerformanceArgs(javaVersion, m_settings->get("UseOptimizedJvmArgs").toBool(), preset));
 
     if (javaVersion.isModular() && shouldApplyOnlineFixes())

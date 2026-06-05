@@ -112,6 +112,7 @@ JavaSettingsWidget::JavaSettingsWidget(BaseInstance* instance, QWidget* parent)
     connect(m_ui->noPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
     connect(m_ui->g1gcPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
     connect(m_ui->ShenandoahGCPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
+    connect(m_ui->zgcPresetRadioButton, &QRadioButton::toggled, this, &JavaSettingsWidget::updateLauncherArgs);
 
     loadSettings();
     updateThresholds();
@@ -172,6 +173,8 @@ void JavaSettingsWidget::loadSettings()
         m_ui->g1gcPresetRadioButton->toggle();
     } else if (preset == "ShenandoahGC") {
         m_ui->ShenandoahGCPresetRadioButton->toggle();
+    } else if (preset == "ZGC") {
+        m_ui->zgcPresetRadioButton->toggle();
     } else {
         m_ui->noPresetRadioButton->toggle();
     }
@@ -247,6 +250,8 @@ void JavaSettingsWidget::saveSettings()
             preset = "G1GC";
         } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
             preset = "ShenandoahGC";
+        } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
+            preset = "ZGC";
         }
         settings->set("GarbageCollectorPreset", preset);
     } else {
@@ -360,6 +365,8 @@ void JavaSettingsWidget::updateLauncherArgs()
             preset = JavaPerformance::GarbageCollectorPreset::G1GC;
         } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
             preset = JavaPerformance::GarbageCollectorPreset::ShenandoahGC;
+        } else if (m_ui->ShenandoahGCPresetRadioButton->isChecked()) {
+            preset = JavaPerformance::GarbageCollectorPreset::ZGC;
         }
 
         QString warning;
