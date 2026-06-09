@@ -87,7 +87,7 @@ QStringList JavaPerformance::getCompletePerformanceArgs(const JavaVersion& versi
                                                         GarbageCollectorPreset preset,
                                                         QString* warning)
 {
-    if (preset == GarbageCollectorPreset::ShenandoahGC || preset == GarbageCollectorPreset::ZGC && version.major() < 25) {
+    if ((preset == GarbageCollectorPreset::ShenandoahGC || preset == GarbageCollectorPreset::ZGC) && version.major() < 25) {
         preset = GarbageCollectorPreset::G1GC;
         if (warning) {
             *warning = QObject::tr("ShenandoahGC/ZGC requires Java 25 or higher, using G1GC");
