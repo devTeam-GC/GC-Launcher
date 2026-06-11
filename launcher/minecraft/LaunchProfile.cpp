@@ -162,7 +162,18 @@ void LaunchProfile::applyMods(const QList<LibraryPtr>& mods)
 
 void LaunchProfile::applyCompatibleJavaMajors(QList<int>& javaMajor)
 {
+    int javaMajorMin = 25;
+    for (int i = 0; i < javaMajor.size(); ++i) {
+        if (javaMajorMin > javaMajor[i]) {
+            javaMajorMin = javaMajor[i];
+        }
+    }
+    
     m_compatibleJavaMajors.append(javaMajor);
+
+    if (!javaMajor.contains(25) && javaMajorMin > 8) {
+        m_compatibleJavaMajors.append(25);
+    }
 }
 void LaunchProfile::applyCompatibleJavaName(QString javaName)
 {
