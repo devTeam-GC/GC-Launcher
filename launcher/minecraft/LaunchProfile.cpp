@@ -162,20 +162,22 @@ void LaunchProfile::applyMods(const QList<LibraryPtr>& mods)
 
 void LaunchProfile::applyCompatibleJavaMajors(QList<int>& javaMajor)
 {
-    for (int i = 0; i < javaMajor.size(); ++i) {
-        if (javaMajor[i] > 8 && javaMajor[i] < 25) {
-            javaMajor[i] = 25;
-        }
-        
-        if (!m_compatibleJavaMajors.contains(javaMajor[i])) {
-            m_compatibleJavaMajors.append(javaMajor[i]);
-        }
-    }
+    m_compatibleJavaMajors.append(javaMajor);
 }
 void LaunchProfile::applyCompatibleJavaName(QString javaName)
 {
-    if (!javaName.isEmpty())
-        m_compatibleJavaName = javaName;
+    if (javaName.isEmpty())
+        return;
+    
+    if (javaName == "java-runtime-alpha" || //Java 16
+        javaName == "java-runtime-beta" || //Java 17
+        javaName == "java-runtime-gamma" || //Java 17
+        javaName == "java-runtime-delta") //Java 21
+    {
+        javaName = "java-runtime-epsilon"; //Java 25
+    }
+
+    m_compatibleJavaName = javaName;
 }
 
 void LaunchProfile::applyLibrary(LibraryPtr library, const RuntimeContext& runtimeContext)
