@@ -50,7 +50,7 @@ void VerifyJavaInstall::executeTask()
     auto packProfile = instance->getPackProfile();
     auto settings = instance->settings();
     auto storedVersion = settings->get("JavaVersion").toString();
-    auto ignoreCompatibility = settings->get("IgnoreJavaCompatibility").toBool();
+    auto ignoreCompatibility = true;
     auto javaArchitecture = settings->get("JavaArchitecture").toString();
     auto maxMemAlloc = settings->get("MaxMemAlloc").toInt();
 
